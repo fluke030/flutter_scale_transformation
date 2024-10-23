@@ -41,10 +41,12 @@ class _ImageBox extends State<ImageBox> {
               SizedBox(
                   width: widget.targetBox.dx,
                   height: widget.targetBox.dy,
-                  child: CustomPaint(painter: canvasPainter)),
+                  child: Image.asset("assets/images/parking_lot.jpg",
+                      fit: BoxFit.fill)),
               Text(
                   "${widget.targetBox.dx.truncate()}x${widget.targetBox.dy.truncate()}",
-                  style: const TextStyle(color: Colors.yellow))
+                  style: const TextStyle(color: Colors.yellow)),
+              CustomPaint(painter: canvasPainter)
             ],
           ),
         ));
@@ -65,6 +67,8 @@ class LinePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    // canvas.drawImage(image, Offset.zero, Paint());
+
     if (points.length >= 2) {
       final paint = Paint()
         ..color = Colors.red
@@ -75,7 +79,6 @@ class LinePainter extends CustomPainter {
             Transformations.transformPoint(points[i], defaultBox, targetBox);
         final transformP1 = Transformations.transformPoint(
             points[i + 1], defaultBox, targetBox);
-        // canvas.drawImage(image, Offset.zero, Paint());
         canvas.drawLine(transformP0, transformP1, paint);
       }
     }
