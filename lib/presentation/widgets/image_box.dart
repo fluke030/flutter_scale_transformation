@@ -5,10 +5,10 @@ class ImageBox extends StatefulWidget {
   final Offset targetBox;
   final Offset defaultBox;
   final List<Offset> points;
-  final Function(Offset point, double width, double height) addPointCallback;
+  final Function(Offset point, Offset targetBox) addPointCallback;
 
   void addPoint(Offset point) {
-    addPointCallback(point, targetBox.dx, targetBox.dy);
+    addPointCallback(point, targetBox);
   }
 
   const ImageBox(

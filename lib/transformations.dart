@@ -2,14 +2,14 @@ import 'dart:ui';
 
 class Transformations {
   static Offset transformPoint(
-      Offset point, Offset defaultBox, Offset targetBox) {
-    if (defaultBox.dx == targetBox.dx && defaultBox.dy == targetBox.dy) {
+      Offset point, Offset sourceBox, Offset targetBox) {
+    if (sourceBox.dx == targetBox.dx && sourceBox.dy == targetBox.dy) {
       return point;
     }
-    final widthPercentage = point.dx / defaultBox.dx;
+    final widthPercentage = point.dx / sourceBox.dx;
     final newWidth = targetBox.dx * widthPercentage;
 
-    final heightPercentage = point.dy / defaultBox.dy;
+    final heightPercentage = point.dy / sourceBox.dy;
     final newHeight = targetBox.dy * heightPercentage;
 
     return Offset(newWidth, newHeight);

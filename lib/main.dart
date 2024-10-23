@@ -35,10 +35,10 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Offset> _points = [];
   static const Offset defaultBox = Offset(640, 320);
 
-  void _addPoint(Offset point, double width, double height) {
+  void _addPoint(Offset point, Offset targetBox) {
     setState(() {
-      final Offset newPoint = Transformations.transformPoint(
-          point, Offset(width, height), defaultBox);
+      final Offset newPoint =
+          Transformations.transformPoint(point, targetBox, defaultBox);
       _points.add(newPoint);
     });
   }
