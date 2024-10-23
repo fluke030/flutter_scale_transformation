@@ -32,7 +32,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Offset> _points = [];
+  final List<Offset> _points = [];
   static const Offset defaultBox = Offset(640, 320);
 
   void _addPoint(Offset point, double width, double height) {
